@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/fontello.css">
+   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+   <title>Справочник по CSS Grid</title>
+</head>
+
+<body>
+   <div class="container">
+      <div class="menu">
+         <ol>
+            <img src="img/itd.png" width="48" alt="" class="logo">
+            <li><a href="#title1">Введение</a></li>
+            <li><a href="#title2">Сравнение с Flexbox</a></li>
+            <li><a href="#title3">Поддержка браузерами</a></li>
+            <li><a href="#title4">Свойства для контейнера</a></li>
+            <ul>
+               <li><a href="#prop_1">display</a></li>
+               <li><a href="#prop_2">grid-template-columns<br>grid-template-rows</a></li>
+               <li><a href="#prop_3">grid-template-areas</a></li>
+               <li><a href="#prop_4">grid-template</a></li>
+               <li><a href="#prop_5">grid-column-gap<br>grid-row-gap<br>grid-gap</a></li>
+               <li><a href="#prop_6">grid-auto-columns<br>grid-auto-rows</a></li>
+               <li><a href="#prop_7">grid-auto-flow</a></li>
+               <li><a href="#prop_8">grid</a></li>
+               <li><a href="#prop_9">justify-items<br>align-items<br>place-items</a></li>
+               <li><a href="#prop_10">justify-content<br>align-content<br>place-content</a></li>
+            </ul>
+            <li><a href="#title5">Свойства для элементов</a></li>
+            <ul>
+               <li><a href="#prop_11">grid-area</a></li>
+               <li><a href="#prop_12">grid-column-start<br>grid-column-end<br>grid-row-start<br>grid-row-end</a></li>
+               <li><a href="#prop_13">grid-column<br>grid-row</a></li>
+               <li><a href="#prop_14">justify-self<br>align-self<br>place-self</a></li>
+            </ul>
+         </ol>
+      </div>
+      <div class="content">
+         <h2 id="title1">1. Введение</h2>
+         <p>CSS Grid Layout - самая мощная система компоновки из доступных на данный момент в CSS. Это двумерная
+            система, которая может обрабатывать как столбцы так и строки, в отличии от Flexbox, который в значительной
+            степени является одномерной системой. При работе с CSS Grid, вы применяете CSS правила к родительским
+            элементам (которые становятся Grid контейнерами) и к дочерним элементам (которые становятся Grid
+            элементами).</p>
+         <dl>
+            <dt>Контейнер сетки</dt>
+            <dd>Элемент к которому применяется <span class="stroke">display: grid</span>. Это прямой родитель для всех
+               элементов сетки. В этом примере <span class="stroke">grid-container</span> является контейнером.<img
+                  src="img/grid-container.png" alt=""></dd>
+         </dl>
+         <dl>
+            <dt>Элемент сетки</dt>
+            <dd>Дочерние элементы (прямы потомки) контейнера. На примере выше <span class="stroke">item</span> это
+               элемент сетки.</dd>
+         </dl>
+         <dl>
+            <dt>Линия сетки (Grid Line)</dt>
+            <dd>Разделительные линии, составляющие структуру для сетки. Они могут быть вертикальными (линии колонок) или
+               горизонтальными (линии строк) и располагаться по обе стороны от строки или столбца. На изображении синяя
+               линия является примером вертикальной линии (линией колонки).<img src="img/gridline.png" alt=""></dd>
+         </dl>
+         <dl>
+            <dt>Трек сетки (Grid Track)</dt>
+            <dd>Пространство между двумя соседними линиями. Трек можно представить как строку (колонка) или столбец
+               (ряд). Вот трек между второй и третей линией строк.<img src="img/gridtrack.png" alt=""></dd>
+         </dl>
+         <dl>
+            <dt>Ячейка сетки (Grid Cell)</dt>
+            <dd>Пространство между линиями двух соседних строк и двух соседних столбцов. Это отдельная единица измерения
+               сетки. Вот пример ячейки между линиями строк 1 и 2, линиями колонок 2 и 3.<img src="img/gridcell.png"
+                  alt=""></dd>
+         </dl>
+         <dl>
+            <dt>Область сетки (Grid Area)</dt>
+            <dd>Общее пространство окружённое четырьмя линиями. Область может состоять из любого количества ячеек. Вот
+               пример области между строками 1 и 3 и колонками 1 и 3.<img src="img/gridarea.png" alt=""></dd>
+         </dl>
+         <dl>
+            <dt>Как устроен grid контейнер</dt>
+            <dd><img src="img/css-grid.png" alt=""></dd>
+         </dl>
+         <h2 id="title2">2. Сравнение с Flexbox</h2>
+         <p>В отличие от Flex, которая ориентирована на одну ось, Grid оптимизирована для двумерных компоновок: когда
+            требуется расположить (выровнять) содержимое в обоих измерениях (по вертикали и горизонтали).
+            <p> Кроме того, благодаря возможности явного позиционирования элементов в сетке, Grid позволяет выполнять
+               кардинальные преобразования в структуре, не требуя никаких изменений HTML разметки. Комбинируя
+               медиа-запросы со свойствами CSS, управляющими компоновкой контейнера grid и его дочерних элементов, можно
+               адаптировать верстку под любые форм-факторы устройств.</p>
+
+            <p> Grid и Flexbox, имеют свои особенности и нельзя сказать, что одно заменяет другое. Скорее Флекс является
+               дополнением к Грид, или наоборот.
+            </p>
+            <p>Flexbox фокусируется на распределении пространства внутри одной оси, использует более простой подход к
+               компоновке, может использовать систему упаковки строк на основе размера содержимого для управления своей
+               вторичной осью и полагается на иерархию разметки. Тогда как Grid больше подходит для создания каркасов,
+               потому что имеет более мощный и комплексный подход и в целом не зависит от иерархии разметки. В отдельных
+               случаях Grid позволяет создать адаптивный макет, который невозможно создать с помощью Flex или как-то
+               еще.</p>
+            <dl>
+               <dt>Flexbox - ориентируется по одной оси</dt>
+               <dd><img src="img/flex.png" alt=""></dd>
+            </dl>
+            <dl>
+               <dt>CSS Grid - ориентируется по двум осям</dt>
+               <dd><img src="img/grid.png" alt=""></dd>
+            </dl>
+            <h2 id="title3">3. Поддержка браузерами</h2>
+            <p>В данный момент почти все современные браузеры поддерживают Grid CSS без необходимости указывать
+               дополнительные префиксы и покрывают 92% всех устройств.</p>
+            <a href="https://caniuse.com/#feat=css-grid" target="_blank">Посмотреть на сайте Can I use</a>
+            <img src="img/caniuse.png" alt="">
+            <h2 id="title4">4. Свойства для контейнера</h2>
+            <dl id="prop_1">
+               <dt>display</dt>
+               <dd>Опеределяет элемент как контейнер и устанавливает новый контекст форматирования сетки для его
+                  содержимого.
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>grid - формирует сетку как блок</li>
+                     <li>inline-grid - формирует сетку как строчный элемент</li>
+                     <li>subgrid - если элемент сам является контейнером</li>
+                  </ul>
+               </dd>
+            </dl>
+            <dl id="prop_2">
+               <dt>grid-template-columns<br>grid-template-rows</dt>
+               <dd>Опеределяет колонки и строки сетки с помощью списка значений разделённого пробелами. Значения
+                  представляют из себя размер трека, а пробелы между ними линии сетки.
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>px, em, rem, % - может быть фиксированным размером, процентами или частью свободного
+                        пространства
+                        в сетка (определяется с помощью единицы <span class="stroke">fr - фракция</span></li>
+                     <li>min-content - наименьший размер контента. Для текста это ширина самого длинного слова или
+                        неразрывного фрагмента.</li>
+                     <li>max-content - наибольший размер контента. Для текста это длина самой большой строки безе
+                        переносов.</li>
+                     <li>fit-content(max) - функция которой передается макс. размер. Если контент меньше этого размера,
+                        ведет себя как <span class="stroke">auto</span>, если больше, то ограничивает размер
+                        ряда/колонки
+                        до указанного в параметре max.</li>
+                     <li>minmax(min,max) - функция, позволяет разом указать минимальный и максимальный размер.
+                        <br><b>Значения:</b>
+                        <ul>
+                           <li>px,em,rem,... - единицы длины</li>
+                           <li>% - проценты</li>
+                           <li>fr - фракция (гибкий размер). Может использоваться только для макс. значения.</li>
+                           <li>min-content</li>
+                           <li>max-content</li>
+                           <li>auto - зависит от того, используется оно как максимальное или минимальное значение
+                              функции
+                              minmax(): если в качестве максимума, то тоже самое что max-content, если в качестве
+                              минимума,
+                              то значение будет минимальным возможным размером для ячейки. Такой размер отличается от
+                              min-content и задается свойствами min-width или min-height.</li>
+                        </ul>
+                     </li>
+                     <li>repeat(n, value) - функция, позволяет повторять n раз то что передано в value. Используется при
+                        создании колонок/рядов.
+                        <br><b>Значения n:</b>
+                        <ul>
+                           <li>auto-fill - повторяет ряд/колонку пока есть место в контейнере. Хотя бы одно повторение
+                              будет всегда.</li>
+                           <li>auto-fit - то же самое, но после размещения элементов оставшиеся пустыми ряд/колонка
+                              сжимаются и исчезают, в результате контейнер всегда будет выглядеть заполненным.</li>
+                        </ul>
+                        <b>Примеры:</b>
+                        <ul>
+                           <li>grid-template-columns: repeat(auto-fill, minmax(150px 1fr));</li>
+                           <li>grid-template-columns: repeat(auto-fit, minmax(100px 1fr));</li>
+                           <li>grid-template-columns: repeat(2, 100px 1fr);</li>
+                        </ul>
+                     </li>
+                  </ul>
+               </dd>
+            </dl>
+            <dl id="prop_3">
+               <dt>grid-template-areas</dt>
+               <dd>Опеределяет шаблон сетки ссылаяся на имена областей, которые заданы с помощью свойства <a
+                     href="#prop_11">grid-area</a>. Повторение названия области приводит к тому, что содержиоме
+                  охватывает эти
+                  ячейки. Точка означает пустую ячейку. Сам синтаксис предоставляет визуализацию структуры сетки.
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>grid-area-name - имя области заданное с помощью <a href="#prop_11">grid-area</a></li>
+                     <li>. - точка обозначающая пустую ячейку</li>
+                     <li>none - области не определены</li>
+                  </ul>
+                  <p class="codepen" data-height="365" data-theme-id="0" data-default-tab="css,result"
+                     data-user="itdoctor" data-slug-hash="YbzxwX"
+                     style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+                     data-pen-title="Grid Ex1">
+                     <span>See the Pen <a href="https://codepen.io/itdoctor/pen/YbzxwX/">
+                           Grid Ex1</a> by ismail (<a href="https://codepen.io/itdoctor">@itdoctor</a>)
+                        on <a href="https://codepen.io">CodePen</a>.</span>
+                  </p>
+                  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+               </dd>
+            </dl>
+            <dl id="prop_4">
+               <dt>grid-template</dt>
+               <dd>Сокращение для <a href="#prop_2">grid-template-rows</a>, <a href="#prop_2">grid-template-columns</a>
+                  и
+                  <a href="#prop_3">grid-template-area</a>.
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>none - устанавливает все три свойства в их начальное значение</li>
+                     <li>subgrid - устанавливает <a href="#prop_2">grid-template-columns</a> и <a
+                           href="#prop_2">grid-template-rows</a> в <span class="stroke">subgrid</span> и <a
+                           href="#prop_3">grid-template-area</a> в его начальное значение</li>
+                     <li><a href="#prop_2">grid-template-rows</a> / <a href="#prop_2">grid-template-columns</a> -
+                        устанавливает эти два свойства в определенное значение, а <a
+                           href="#prop_3">grid-template-area</a>
+                        в <span class="stroke">none</span></li>
+                  </ul>
+                  <b>Пример:</b>
+                  <ul>
+                     <li>grid-template: <br>"header header header" 100px <br>"main main sidebar" 500px / 1fr 1fr 1fr;
+                     </li>
+                     /*<br>
+                     100px - высота первой строки<br>
+                     500px - высота второй строки<br>
+                     1fr 1fr 1fr - ширина столбцов<br>
+                     */
+                  </ul>
+
+               </dd>
+            </dl>
+            <dl id="prop_5">
+               <dt>grid-column-gap<br>grid-row-gap<br>grid-gap</dt>
+               <dd>Опеределяет размер ширины линии между строками, между столбцами или для двух параметров одновременно.
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>line-size - значение размера, например в px</li>
+                  </ul>
+                  <b>Примеры:</b>
+                  <ul>
+                     <li>grid-column-gap: 10px;</li>
+                     <li>grid-row-gap: 20px;</li>
+                     <li>grid-gap: 15px;</li>
+                     <li>grid-gap: grid-row-gap grid-column-gap;</li>
+                  </ul>
+               </dd>
+            </dl>
+            <dl id="prop_6">
+               <dt>grid-auto-columns<br>grid-auto-rows</dt>
+               <dd>Определяет размер строк или столбцов по умолчанию. Работает если не указаны свойства <a
+                     href="#prop_2">grid-template-rows</a> и <a href="#prop_2">grid-template-columns</a> соответственно,
+                  а
+                  так же для треков созданных автоматически.
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>track-size - значение размера в %, px, em, rem или fr</li>
+                  </ul>
+                  <b>Примеры:</b>
+                  <ul>
+                     <li>grid-auto-columns: 320px;</li>
+                     <li>grid-auto-rows: 1fr;</li>
+                  </ul>
+               </dd>
+            </dl>
+            <dl id="prop_7">
+               <dt>grid-auto-flow</dt>
+               <dd>Если у вас есть элементы, которые вы явно не позиционируете в сетке, запускается алгоритм авто
+                  размещения, чтобы их автоматически разместить. Это свойство контролирует то как алгоритм
+                  авто-размещения
+                  работает.
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>row - говорит алгоритму авто-размещения заполнять каждую строку поочерёдно, добавляя новые
+                        строки
+                        при необходимости</li>
+                     <li>column - говорит алгоритму авто-размещения заполнять каждую колонку поочерёдно, добавляя новые
+                        колнки при необходимости</li>
+                     <li>dense - говорит алгоритму авто-размещения заполнять дыры в сетке, если более мелкие элементы
+                        появляются позже</li>
+                  </ul>
+               </dd>
+            </dl>
+            <dl id="prop_8">
+               <dt>grid</dt>
+               <dd>Сокращение для настройки всех следующих свойств: <a href="#prop_2">grid-template-rows</a>, <a
+                     href="#prop_2">grid-template-columns</a>, <a href="#prop_3">grid-template-area</a>, <a
+                     href="#prop_6">grid-auto-rows</a>, <a href="#prop_6">grid-auto-columns</a>, <a
+                     href="#prop_7">grid-auto-flow</a>. Он так же настраивает <a href="#prop_5">grid-column-gap</a> и <a
+                     href="#prop_5">grid-row-gap</a> на их начальные значения, даже если они не могут быть явно заданы
+                  этим
+                  свойством.
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>none - настраивает все совйства на их начальные значения</li>
+                     <li>grid-template-rows / grid-template-columns</li>
+                     <li>grid-auto-flow grid-auto-rows / grid-auto-columns</li>
+                     <li>grid-template-areas</li>
+                     <li>grid-template</li>
+                  </ul>
+                  <b>Примеры:</b>
+                  <ul>
+                     <li>grid: 'header header header header'
+                        'main main main right right'
+                        'footer footer footer footer';</li>
+                     <li>grid: 100px 300px / 3fr 1fr;</li>
+                     <li>grid: auto-flow dense 100px / 1fr 2fr;</li>
+                     <li>grid: 100px 300px / auto-flow 200px;</li>
+                     <li>grid: [row1-start] "header header header" 1fr [row1-end]
+                        [row2-start] "footer footer footer" 25px [row2-end]
+                        / auto 50px auto;
+                     </li>
+                     <li>grid: repeat(auto-fill, 5em) / auto-flow 1fr;</li>
+                     <li>grid: auto-flow 1fr / repeat(auto-fill, 5em);</li>
+                     <li>grid: auto 1fr auto / repeat(5, 1fr);</li>
+                     <li>grid: repeat(3, auto) / repeat(4, auto);</li>
+                  </ul>
+               </dd>
+            </dl>
+            <dl id="prop_9">
+               <dt>justify-items (1)<br>align-items (2)<br>place-items</dt>
+               <dd>
+                  Выравнивает элементы внутри ячеек.<br>
+                  (1) Выравнивает элементы вдоль оси строки (по горизонтали).<br>
+                  (2) Выравнивает элементы вдоль оси столбца (по вертикали).
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>start - размещает все элементы в начале ячеек (слева / сверху)</li>
+                     <li>end - размещает все элементы в конце ячеек (справа / снизу)</li>
+                     <li>center - размещает все элементы по центру ячеек</li>
+                     <li>stretch - растягивает все элементы на всю ширину / высоту ячеек</li>
+                  </ul>
+                  <b>Примеры:</b>
+                  <ul>
+                     <li>align-items: center;</li>
+                     <li>justify-items: end;</li>
+                     <li>place-items: start;</li>
+                     <li>place-items: align-items justify-items;</li>
+                  </ul>
+                  <img src="img/place-items.png" alt="">
+               </dd>
+            </dl>
+            <dl id="prop_10">
+               <dt>justify-content (1)<br>align-content (2)<br>place-content</dt>
+               <dd>
+                  Выравнивает сетку внутри контейнера.<br>
+                  (1) Выравнивает элементы по горизонтали.<br>
+                  (2) Выравнивает элементы по вертикали.
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>start - размещает все элементы в начале ячеек (слева / сверху)</li>
+                     <li>end - размещает все элементы в конце ячеек (справа / снизу)</li>
+                     <li>center - размещает все элементы по центру ячеек</li>
+                     <li>stretch - растягивает все элементы на всю ширину / высоту контейнера</li>
+                     <li>space-around - одинаковое пространство между элементами, и полуразмерные отступы по краям</li>
+                     <li>space-between - одинаковое пространство между элементами, без отступов по краям</li>
+                     <li>space-evently - одинаковое пространство между элементами и полноразмерные отступы по краям</li>
+                     <li></li>
+                  </ul>
+                  <b>Примеры:</b>
+                  <ul>
+                     <li>align-content: center;</li>
+                     <li>justify-content: end;</li>
+                     <li>place-content: start;</li>
+                     <li>place-content: align-content justify-content;</li>
+                  </ul>
+                  <img src="img/place-content.png" alt="">
+               </dd>
+            </dl>
+            <h2 id="title5">5. Свойства для дочерних элементов</h2>
+            <dl id="prop_11">
+               <dt>grid-area</dt>
+               <dd>
+                  Даёт название элементу чтобы можно было ссылаться на него с помощью шаблона созданного через свойство
+                  <a href="#prop_3">grid-template-areas</a>. В качестве альтернативы, это свойство может быть
+                  использовано в качестве сокращения для <a href="#prop_12">grid-row-start</a> + <a
+                     href="#prop_12">grid-column-start</a> + <a href="#prop_12">grid-row-end</a> + <a
+                     href="#prop_12">grid-column-end</a>
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>name - название, которое вы выберите</li>
+                     <li>grid-row-start / grid-column-start / grid-row-end / grid-column-end - может быть нумерацией или
+                        названиями линий</li>
+                  </ul>
+                  <b>Примеры:</b>
+                  <ul>
+                     <li>grid-area: header;</li>
+                     <li>grid-area: sidebar;</li>
+                     <li>grid-area: 1 / 2 / span 2 / -1;</li>
+                  </ul>
+               </dd>
+            </dl>
+            <dl id="prop_12">
+               <dt>grid-column-start<br>grid-column-end<br>grid-row-start<br>grid-row-end</dt>
+               <dd>
+                  Определяют местоположение в сетке ссылаясь на конкретные линии. grid-column-start / grid-row-start -
+                  это линия с которой начинается элемент, а grid-column-end / grid-row-end - это линия на которой
+                  элемент заканчивается.
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>grid-line - может быть числом ссылающимся на пронумерованную линию, или названием ссылающимся
+                        на именованную линию</li>
+                     <li>span N - элемент, который будет охватывать предоставленное в N количество треков</li>
+                     <li>span grid-line - элемент будет охватывать пространство пока не достигнет линии с название
+                        указанным вместо grid-line</li>
+                     <li>auto - указывает автоматическое размещение, автоматический охват или охват по умолчанию</li>
+                  </ul>
+                  <b>Примеры:</b>
+                  <ul>
+                     <li>grid-column-start: 2;</li>
+                     <li>grid-column-end: span 3;</li>
+                     <li>grid-row-start: myLine1;</li>
+                     <li>grid-row-end: -1;</li>
+                  </ul>
+               </dd>
+            </dl>
+            <dl id="prop_13">
+               <dt>grid-column<br>grid-row</dt>
+               <dd>
+                  Сокращения для <a href="#prop_12">grid-column-start</a> + <a href="#prop_12">grid-column-end</a> и <a
+                     href="#prop_12">grid-row-start</a> + <a href="#prop_12">grid-row-end</a> соответственно.
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>grid-column: start-line / end-line;</li>
+                     <li>grid-row: start-line / end-line;</li>
+                     <li>grid-column: start-line / span value;</li>
+                     <li>grid-row: start-line / span value;</li>
+                  </ul>
+                  <b>Примеры:</b>
+                  <ul>
+                     <li>grid-column: 2 / span 3;</li>
+                     <li>grid-row: myLine1 / -1;</li>
+                  </ul>
+               </dd>
+            </dl>
+            <dl id="prop_14">
+               <dt>justify-self<br>align-self<br>place-self</dt>
+               <dd>
+                  justify-self - Выравнивает содержимое элемента вдоль оси строки. align-self - Выравнивает содержимое
+                  элемента вдоль оси столбца. place-self - Выравнивает текущий элемент внутри ячейки по двум осям сразу.
+                  Эти значение применяются к содержимому внутри отдельного элемента.
+                  <br><br><b>Значения:</b>
+                  <ul>
+                     <li>start - выравнивает содержимое по верхней / левой части области</li>
+                     <li>end - выравнивает содержимое по нижней / правой части области</li>
+                     <li>center - выравнивает содержимое по центру области</li>
+                     <li>stretch (default) - заполняет всю высоту / ширину области</li>
+                  </ul>
+                  <b>Примеры:</b>
+                  <ul>
+                     <li>align-self: center;</li>
+                     <li>justify-self: start;</li>
+                     <li>place-self: end;</li>
+                     <li>place-self: align-self justify-self;</li>
+                  </ul>
+               </dd>
+            </dl>
+            <footer><a href="#title1"><i class="icon-up-circle"></i></a> | &copy; 2019 ITDoctor |
+               <a href="https://github.com/morphIsmail/css-grid-manual" target="blank"><i
+                     class="icon-github-circled"></i></a> |
+               <a href="https://www.youtube.com/c/ITDoctor?sub_confirmation=1" target="blank"><i
+                     class="icon-youtube-play"></i></a> |
+               <a href="https://vk.com/itdoctorstudio" target="blank"><i class="icon-vkontakte"></i></a>
+            </footer>
+            <div class="mb"></div>
+      </div>
+   </div>
+   <script src="js/main.js"></script>
+</body>
+
+</html>

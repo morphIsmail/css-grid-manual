@@ -1,0 +1,104 @@
+body {
+   margin: 0;
+}
+dt {
+   color: #1976D2;
+   font-size: 20px;
+   font-weight: bold;
+}
+.mb {
+   height: 15px;
+}
+.stroke {
+   color: #1976D2;
+   background-color: rgb(255, 255, 255);
+   border: 1px solid #1976D2;
+   padding: 2px;
+   line-height: 25px;
+   font-weight: bold;
+}
+.menu {
+   background-color: #212121;
+   font-weight: bold;
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   width: 270px;
+   overflow-y: auto;
+}
+.content {
+   background-color: #BBDEFB;
+   margin-left: 270px;
+   padding: 10px;
+}
+.content a {
+   color: #1976D2;
+}
+img {
+   max-width: 100%;
+   display: block;
+   padding: 10px 0;
+}
+ul {
+   list-style-type: disc;
+   margin: 4px 0;
+   font-style: italic;
+   font-weight: normal;
+}
+ul ul {
+   list-style-type: circle;
+}
+li {
+   margin: 2px 0;
+}
+ol {
+   color: #BBDEFB;
+}
+a {
+   text-decoration: none;
+   color: #BBDEFB;
+   transition: 0.3s;
+}
+h2 {
+   margin: 0;
+   padding: 10px;
+}
+a:hover {
+   color: #2196F3;
+   border: none;
+}
+.logo {
+   margin: 0 auto;
+   transform: translateX(-20px);
+   padding: 0;
+
+}
+footer {
+   background-color: #fff;
+   padding: 4px;
+   position: fixed;
+   bottom: -1px;
+   right: 10px;
+   font-size: 16px;
+   border: 1px solid black;
+   display: flex;
+   align-items: center;
+}
+footer a .icon-github-circled:before { content: '\f09b'; color: #000;} 
+footer a .icon-youtube-play:before { content: '\f16a'; color: #f00;} 
+footer a .icon-vkontakte:before { content: '\f189'; color: #4a76a8;}
+@media screen and (max-width: 768px) {
+   .menu {
+      position: initial;
+      width: 100%;
+      overflow: auto;
+   }
+   .content {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+   }
+   .mb {
+      height: 20px;
+   }
+}
