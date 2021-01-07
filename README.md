@@ -1,5 +1,6 @@
 # css-grid-manual
 Справочник по CSS Grid
+Видео урок по этой теме на канале ITDoctorr: https://youtu.be/yfDwiukzuUQ
 
 ## Я, Исмаил Усеинов:
 * __YouTube канал ITDoctor:__ https://www.youtube.com/c/ITDoctor
