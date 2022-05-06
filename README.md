@@ -1,14 +1,5 @@
-# css-grid-manual
-Справочник по CSS Grid.  
-Видео урок по этой теме на канале ITDoctor: https://youtu.be/yfDwiukzuUQ
+# Справочник по CSS Grid
 
-## Я, Исмаил Усеинов:
-* __YouTube канал ITDoctor:__ https://www.youtube.com/c/ITDoctor
-* __ВК:__ https://vk.com/morphop
-* __Группа в ВК:__ https://vk.com/itdoctorstudio
-* __Instagram:__ https://instagram.com/ismail_asanovich/
+[Видео урок по CSS Grid на канале ITDoctor](https://youtu.be/yfDwiukzuUQ)
 
-## Благодарность автору ( ₽ ):
-* __Сбербанк VISA:__ 4274 3200 3233 1582
-* __Yandex:__ 410011260821995 https://yasobe.ru/na/itdoctor  
-* __Станьте спонсором Youtube канала:__ https://www.youtube.com/channel/UC2Ev-rDSHBov0ZMChesLfrg/join
+[![GitHub](https://img.shields.io/badge/-Мой_GitHub-333?style=for-the-badge&logo=GitHub&logoColor=fff)](https://github.com/morphIsmail)
