@@ -112,7 +112,7 @@
          </dl>
          <h2 id="title3">3. Поддержка браузерами</h2>
          <p>В данный момент почти все современные браузеры поддерживают Grid CSS без необходимости указывать
-            дополнительные префиксы и покрывают 95.45% всех устройств.</p>
+            дополнительные префиксы и покрывают 97.94% всех устройств.</p>
          <a href="https://caniuse.com/#feat=css-grid" target="_blank">Посмотреть на сайте Can I use</a>
          <img src="img/caniuse.png" alt="">
          <h2 id="title4">4. Свойства для контейнера</h2>
@@ -192,15 +192,19 @@
                   <li>. - точка обозначающая пустую ячейку</li>
                   <li>none - области не определены</li>
                </ul>
-               <p class="codepen" data-height="365" data-theme-id="0" data-default-tab="css,result" data-user="itdoctor"
-                  data-slug-hash="YbzxwX"
-                  style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
-                  data-pen-title="Grid Ex1">
-                  <span>See the Pen <a href="https://codepen.io/itdoctor/pen/YbzxwX/">
-                        Grid Ex1</a> by ismail (<a href="https://codepen.io/itdoctor">@itdoctor</a>)
-                     on <a href="https://codepen.io">CodePen</a>.</span>
-               </p>
-               <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+               <b>Пример:</b>
+               <pre>
+.container {
+   display: grid;
+   grid-template-columns: 1fr 200px 1fr;
+   grid-template-rows: repeat(4, 150px);
+   grid-template-areas:
+      "header header header"
+      "content content ."
+      "content content ."
+      "footer footer footer";
+}
+               </pre>
             </dd>
          </dl>
          <dl id="prop_4">
@@ -228,7 +232,6 @@
                   1fr 1fr 1fr - ширина столбцов<br>
                   */
                </ul>
-
             </dd>
          </dl>
          <dl id="prop_5">
@@ -457,10 +460,10 @@
             </dd>
          </dl>
          <footer><a href="#title1"><i class="icon-up-circle"></i></a>
-            <a href="https://www.youtube.com/c/ITDoctor?sub_confirmation=1" target="blank" class="copy">&copy; 2019 ITDoctor </a>
-            <a href="https://github.com/morphIsmail/css-grid-manual" target="blank"><i class="icon-github-circled"></i></a>
-            <a href="https://youtu.be/yfDwiukzuUQ" target="blank"><i class="icon-youtube-play"></i></a>
-            <a href="https://vk.com/itdoctorstudio" target="blank"><i class="icon-vkontakte"></i></a>
+            <a href="https://www.youtube.com/c/ITDoctor?sub_confirmation=1" target="_blank" class="copy">&copy; 2024 ITDoctor </a>
+            <a href="https://github.com/morphIsmail/css-grid-manual" target="_blank"><i class="icon-github-circled"></i></a>
+            <a href="https://youtu.be/yfDwiukzuUQ" target="_blank"><i class="icon-youtube-play"></i></a>
+            <a href="https://vk.com/itdoctorstudio" target="_blank"><i class="icon-vkontakte"></i></a>
          </footer>
          <div class="mb"></div>
       </div>
