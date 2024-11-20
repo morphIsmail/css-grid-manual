@@ -25,7 +25,7 @@
                <li><a href="#prop_2">grid-template-columns<br>grid-template-rows</a></li>
                <li><a href="#prop_3">grid-template-areas</a></li>
                <li><a href="#prop_4">grid-template</a></li>
-               <li><a href="#prop_5">grid-column-gap<br>grid-row-gap<br>grid-gap</a></li>
+               <li><a href="#prop_5">column-gap<br>row-gap<br>gap</a></li>
                <li><a href="#prop_6">grid-auto-columns<br>grid-auto-rows</a></li>
                <li><a href="#prop_7">grid-auto-flow</a></li>
                <li><a href="#prop_8">grid</a></li>
@@ -235,7 +235,7 @@
             </dd>
          </dl>
          <dl id="prop_5">
-            <dt>grid-column-gap<br>grid-row-gap<br>grid-gap</dt>
+            <dt>column-gap<br>row-gap<br>gap</dt>
             <dd>Опеределяет размер ширины линии между строками, между столбцами или для двух параметров одновременно.
                <br><br><b>Значения:</b>
                <ul>
@@ -243,10 +243,10 @@
                </ul>
                <b>Примеры:</b>
                <ul>
-                  <li>grid-column-gap: 10px;</li>
-                  <li>grid-row-gap: 20px;</li>
-                  <li>grid-gap: 15px;</li>
-                  <li>grid-gap: grid-row-gap grid-column-gap;</li>
+                  <li>column-gap: 10px;</li>
+                  <li>row-gap: 20px;</li>
+                  <li>gap: 15px;</li>
+                  <li>gap: row-gap column-gap;</li>
                </ul>
             </dd>
          </dl>
@@ -290,8 +290,8 @@
             <dd>Сокращение для настройки всех следующих свойств: <a href="#prop_2">grid-template-rows</a>, <a
                   href="#prop_2">grid-template-columns</a>, <a href="#prop_3">grid-template-area</a>, <a
                   href="#prop_6">grid-auto-rows</a>, <a href="#prop_6">grid-auto-columns</a>, <a
-                  href="#prop_7">grid-auto-flow</a>. Он так же настраивает <a href="#prop_5">grid-column-gap</a> и <a
-                  href="#prop_5">grid-row-gap</a> на их начальные значения, даже если они не могут быть явно заданы
+                  href="#prop_7">grid-auto-flow</a>. Он так же настраивает <a href="#prop_5">column-gap</a> и <a
+                  href="#prop_5">row-gap</a> на их начальные значения, даже если они не могут быть явно заданы
                этим
                свойством.
                <br><br><b>Значения:</b>
